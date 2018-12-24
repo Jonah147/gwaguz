@@ -84,7 +84,7 @@ bot.onText(/\/start/,(msg) => {
         }
       }
       bot.sendMessage(msg.chat.id, "Contact Info", option);
-      bot.on("contact",(msg) => {
+      bot.once("contact",(msg) => {
           // bot.sendMessage(msg.id,"",msg.contact.first_name,msg.contact.phone_number,option);
           attendee.PhoneNumber = msg.contact.phone_number;
           var option_two = {
