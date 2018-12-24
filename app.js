@@ -69,7 +69,6 @@ bot.onText(/\/start/,(msg) => {
     bot.sendMessage(msg.chat.id, "Gwaguz " + msg.chat.username);
     bot.sendMessage(msg.chat.id, "Give us your Full Name: ");
     bot.once('message', (msg) => { 
-      console.log(msg.from.id);
       attendee.telegramId = msg.from.id;
       attendee.telegramName = msg.from.username;
       attendee.FullName = msg.text;
@@ -95,13 +94,12 @@ bot.onText(/\/start/,(msg) => {
           }
           bot.sendMessage(msg.chat.id, "How certain are you to come?", option_two);
           bot.once("callback_query",(msg) => {
-            console.log(msg);
             if(msg.data == 'coming') {
               attendee.Status = "coming";
             } else {
               attendee.Status = "not sure";
             }
-            bot.sendMessage(msg.message.chat.id, "Thank you for registering, we will update you with full detail soon...");
+            bot.sendMessage(msg.message.chat.id, "Thank you for registering, we will update you with the dethails very soon...");
             // bot.sendMessage(channelId,`Name: ${ attendee.FullName}, 
             //                                 Phone: ${ attendee.phone_number}
             //                                 Telegram: @${ attendee.telegramName},`);
