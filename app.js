@@ -46,14 +46,7 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
   const resp = match[1];
   bot.sendMessage(chatId, resp);
 });
-// bot.on('message', (msg) => {
-//   const chatId = msg.chat.id;
-//   if(addingTask) {
-//     addTask(msg.text.toString(),null);
-//   } else if(msg.text !== '/add') {
-//     bot.sendMessage(chatId, 'Hello sir use /add to add a task');
-//   }
-// });
+
 attendee = {
   FullName: "Yonas Tesfahun",
   PhoneNumber: "+251912433421",
@@ -61,8 +54,6 @@ attendee = {
   telegramId: "ojfwiojeoiij",
   telegramName: "Jonah"
 }
-// console.log(bot.getChat("@GwaguzTeam"));
-// db.collection('attendees').doc('ef').set(attendee);
 
 bot.onText(/\/start/,(msg) => {
 
@@ -110,12 +101,13 @@ bot.onText(/\/start/,(msg) => {
     });
 });
 
-// bot.onText(/\/register/,(msg) => {
-  
-//   db.collection('').doc('ef').set(attende);
-//   addingTask = true;
-// });
-
+var http = require('https');
+setInterval(function() {
+  var res = http.get('https://gwaguz.herokuapp.com/');
+},30000);
+app.get('/',(req,res) => {
+    res.sendFile('index.html');
+})
 app.listen(port, function() {
     console.log('Our app is running on http://localhost:' + port);
 });
